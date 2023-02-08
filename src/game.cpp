@@ -8,6 +8,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
   PlaceFood();
+  PlaceMagicFood();
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -25,7 +26,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food);
+    renderer.Render(snake, food, magic_food);
 
     frame_end = SDL_GetTicks();
 
@@ -65,6 +66,22 @@ void Game::PlaceFood() {
   }
 }
 
+void Game::PlaceMagicFood() {
+  int x, y;
+  while (true) {
+    x = random_w(engine);
+    y = random_h(engine);
+    // Check that the location is not occupied by a snake or food item before placing
+    // magic food.
+    if (!snake.SnakeCell(x, y) && !(x == food.x && y == food.y)) {
+      magic_food.x = x;
+      magic_food.y = y;
+      return;
+    }
+  }
+}
+
+  
 void Game::Update() {
   if (!snake.alive) return;
 
@@ -78,9 +95,18 @@ void Game::Update() {
     score++;
     PlaceFood();
     // Grow snake and increase speed.
-    snake.GrowBody();
+    //snake.GrowBody();
+    snake.SetState(Snake::State::kGrowing);
     snake.speed += 0.02;
+  } else if (magic_food.x == new_x && magic_food.y == new_y) {
+    PlaceMagicFood();
+    if (snake.size > 1) {
+      // Shrink snake and decrease speed.
+      snake.SetState(Snake::State::kShrinking);
+      snake.speed -= 0.02;
+    }
   }
+    
 }
 
 int Game::GetScore() const { return score; }
