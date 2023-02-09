@@ -13,7 +13,10 @@ class Snake {
       : grid_width(grid_width),
         grid_height(grid_height),
         head_x(grid_width / 2),
-        head_y(grid_height / 2) {}
+        head_y(grid_height / 2),
+        size{1},
+        alive{true},
+        speed{0.1f} {}
 
   void Update();
 
@@ -41,9 +44,12 @@ class Snake {
 
   int grid_width;
   int grid_height;
-  int size{1};
-  bool alive{true};
-  float speed{0.1f};
+  //int size{1};
+  //bool alive{true};
+  //float speed{0.1f};
+  int size;
+  bool alive;
+  float speed;
   float head_x;
   float head_y;
 };
