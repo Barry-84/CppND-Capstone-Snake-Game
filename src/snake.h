@@ -17,27 +17,35 @@ class Snake {
 
   void Update();
 
-  //void GrowBody();
   void SetState(Snake::State new_state);
-  bool SnakeCell(int x, int y);
+  void SetSpeed(float deltaSpeed);
+  void SetDirection(Direction newDirection);
 
-  Direction direction = Direction::kUp;
-  State state = State::kNone;
+  bool SnakeCell(int& x, int& y) const;
 
-  float speed{0.1f};
-  int size{1};
-  bool alive{true};
-  float head_x;
-  float head_y;
-  std::vector<SDL_Point> body;
+  int GetSize() const;
+  bool GetAlive() const;
+  float GetHeadX() const;
+  float GetHeadY() const;
+  Direction GetDirection() const;
+  std::vector<SDL_Point> GetBody() const; // uses move semantics: vector will be moved on return
 
  private:
   void UpdateHead();
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
 
-  // bool growing{false};
+  Direction direction = Direction::kUp;
+  State state = State::kNone;
+ 
+  std::vector<SDL_Point> body;
+
   int grid_width;
   int grid_height;
+  int size{1};
+  bool alive{true};
+  float speed{0.1f};
+  float head_x;
+  float head_y;
 };
 
 #endif

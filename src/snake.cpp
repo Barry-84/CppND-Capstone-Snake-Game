@@ -46,14 +46,6 @@ void Snake::UpdateHead() {
 void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) {
   // Add previous head location to vector
   body.push_back(prev_head_cell);
-
-// if (!growing) {
-//    // Remove the tail from the vector.
-//    body.erase(body.begin());
-//  } else {
-//    growing = false;
-//    size++;
-//  }
   
   switch (state) {
     case State::kGrowing:
@@ -81,11 +73,19 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
   }
 }
 
-//void Snake::GrowBody() { growing = true; }
 void Snake::SetState(Snake::State new_state) { state = new_state; }
+void Snake::SetSpeed(float deltaSpeed) { speed += deltaSpeed; };
+void Snake::SetDirection(Snake::Direction newDirection) {direction = newDirection; };
+
+int Snake::GetSize() const { return size; }
+bool Snake::GetAlive() const { return alive; }
+float Snake::GetHeadX() const { return head_x; }
+float Snake::GetHeadY() const { return head_y; }
+Snake::Direction Snake::GetDirection() const { return direction; };
+std::vector<SDL_Point> Snake::GetBody() const { return body; };
 
 // Inefficient method to check if cell is occupied by snake.
-bool Snake::SnakeCell(int x, int y) {
+bool Snake::SnakeCell(int& x, int& y) const {
   if (x == static_cast<int>(head_x) && y == static_cast<int>(head_y)) {
     return true;
   }
