@@ -44,9 +44,6 @@ class Snake {
 
   int grid_width;
   int grid_height;
-  //int size{1};
-  //bool alive{true};
-  //float speed{0.1f};
   int size;
   bool alive;
   float speed;

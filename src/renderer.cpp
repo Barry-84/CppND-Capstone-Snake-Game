@@ -38,8 +38,6 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-//void Renderer::Render(Snake snake, SDL_Point const &food, SDL_Point const &magic_food) {
-//void Renderer::Render(Snake snake, Food const &food, Food const &magic_food) {
 void Renderer::Render(Snake snake, Food &food, Food &magic_food) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
@@ -51,20 +49,12 @@ void Renderer::Render(Snake snake, Food &food, Food &magic_food) {
 
   // Render food
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  //block.x = food.x * block.w; // "take the x cell number and we multiply by the block width."
-  //block.y = food.y * block.h; // "take the y cell number and we multiply by the block height."
-  //block.x = food.point.x * block.w; // "take the x cell number and we multiply by the block width."
-  //block.y = food.point.y * block.h; // "take the y cell number and we multiply by the block height."
   block.x = food.getPointX() * block.w; // "take the x cell number and we multiply by the block width."
   block.y = food.getPointY() * block.h; // "take the y cell number and we multiply by the block height."
   SDL_RenderFillRect(sdl_renderer, &block);
 
   // Render magic food 
   SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0xFF); // green
-  //block.x = magic_food.x * block.w; // "take the x cell number and we multiply by the block width."
-  //block.y = magic_food.y * block.h; // "take the y cell number and we multiply by the block height."
-  //block.x = magic_food.point.x * block.w; // "take the x cell number and we multiply by the block width."
-  //block.y = magic_food.point.y * block.h; // "take the y cell number and we multiply by the block height."
   block.x = magic_food.getPointX() * block.w; // "take the x cell number and we multiply by the block width."
   block.y = magic_food.getPointY() * block.h; // "take the y cell number and we multiply by the block height."
   SDL_RenderFillRect(sdl_renderer, &block);

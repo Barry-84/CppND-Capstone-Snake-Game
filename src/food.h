@@ -10,6 +10,7 @@ class Food {
     int getPointY();
     void setPointX(int& x);
     void setPointY(int& y);
+    bool FoodCell(int& x, int& y) const;
   private:
     SDL_Point point;
 };

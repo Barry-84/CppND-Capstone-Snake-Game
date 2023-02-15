@@ -60,10 +60,6 @@ void Game::PlaceFood() {
     // Check that the location is not occupied by a snake item before placing
     // food.
     if (!snake.SnakeCell(x, y)) {
-      //food.x = x;
-      //food.y = y;
-      //food.point.x = x;
-      //food.point.y = y;
       food.setPointX(x);
       food.setPointY(y);
       return;
@@ -78,13 +74,7 @@ void Game::PlaceMagicFood() {
     y = random_h(engine);
     // Check that the location is not occupied by a snake or food item before placing
     // magic food.
-    //if (!snake.SnakeCell(x, y) && !(x == food.x && y == food.y)) {
-      //magic_food.x = x;
-      //magic_food.y = y;
-    //if (!snake.SnakeCell(x, y) && !(x == food.point.x && y == food.point.y)) {
-    if (!snake.SnakeCell(x, y) && !(x == food.getPointX() && y == food.getPointY())) {
-      //magic_food.point.x = x;
-      //magic_food.point.y = y;
+    if (!snake.SnakeCell(x, y) && !food.FoodCell(x,y)) {
       magic_food.setPointX(x);
       magic_food.setPointY(y);
       return;
@@ -102,16 +92,12 @@ void Game::Update() {
   int new_y = static_cast<int>(snake.GetHeadY());
 
   // Check if there's food over here
-  //if (food.x == new_x && food.y == new_y) {
-  //if (food.point.x == new_x && food.point.y == new_y) {
   if (food.getPointX() == new_x && food.getPointY() == new_y) {
     score++;
     PlaceFood();
     // Grow snake and increase speed.
     snake.SetState(Snake::State::kGrowing);
     snake.SetSpeed(0.02);
-  //} else if (magic_food.x == new_x && magic_food.y == new_y) {
-  //} else if (magic_food.point.x == new_x && magic_food.point.y == new_y) {
   } else if (magic_food.getPointX() == new_x && magic_food.getPointY() == new_y) {
     PlaceMagicFood();
     if (snake.GetSize() > 1) {
