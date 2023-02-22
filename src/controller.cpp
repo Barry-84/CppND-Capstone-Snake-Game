@@ -3,10 +3,19 @@
 #include "SDL.h"
 #include "snake.h"
 
+Controller::Controller(const std::size_t grid_width, const std::size_t grid_height) :
+    grid_width(grid_width), grid_height(grid_height) {
+
+}
+
 void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
                                  Snake::Direction opposite) const {
   if (snake.GetDirection() != opposite || snake.GetSize() == 1) snake.SetDirection(input);
   return;
+}
+void Controller::PlanPath() {
+  //pathplanner = std::make_unique<PathPlanner>(grid_width, grid_height); 
+  pathplanner.reset(new PathPlanner(grid_width, grid_height));
 }
 
 void Controller::HandleInput(bool &running, Snake &snake) const {

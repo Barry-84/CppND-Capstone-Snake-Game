@@ -4,6 +4,7 @@
 #include <vector>
 #include <limits>
 #include <cmath>
+#include <array>
   
   class Node {
     public:
@@ -23,7 +24,9 @@
       Node(){}
       //Node(int idx, RouteModel* search_model, Model::Node node) : (Model::Node(node), parent_model(search_model), index(idx) {}
 
-    //private:
+    private:
+      //std::array<std::array<int, 4>, 2> neighboursDeltas = { {1, 0}, {-1, 0}, {0, 1}, {0, -1} };
+      int neighboursDeltas[4][2]{ {1, 0}, {-1, 0}, {0, 1}, {0, -1} };
       //int index;
       //Node* FindNeighbour(std::vector<int< node_indices);
       //RouteModel* parent_model = nullptr;

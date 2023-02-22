@@ -63,7 +63,7 @@ void PathPlanner::ConstructFinalPath(Node *current_node) {
 
 }
 
-void PathPlanner::AStarSearch(int start_x, int start_y, int end_x, int end_y) {
+std::vector<Node*> PathPlanner::AStarSearch(int start_x, int start_y, int end_x, int end_y) {
 
     Node *current_node = nullptr;
 
@@ -95,5 +95,5 @@ void PathPlanner::AStarSearch(int start_x, int start_y, int end_x, int end_y) {
         AddNeighbours(current_node);
     }
 
-    return;
+    return path;
 }
