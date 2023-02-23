@@ -28,7 +28,7 @@ void Game::Run(Controller &controller, Renderer &renderer,
 
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
-    controller.PlanPath();
+    controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
     Update();
     renderer.Render(snake, food, magic_food);
 

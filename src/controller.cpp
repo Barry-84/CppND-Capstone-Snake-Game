@@ -13,9 +13,11 @@ void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
   if (snake.GetDirection() != opposite || snake.GetSize() == 1) snake.SetDirection(input);
   return;
 }
-void Controller::PlanPath() {
+void Controller::PlanPath(int start_x, int start_y, int end_x, int end_y) {
   //pathplanner = std::make_unique<PathPlanner>(grid_width, grid_height); 
   pathplanner.reset(new PathPlanner(grid_width, grid_height));
+  //std::vector<Node*> path = pathplanner->AStarSearch(start_x, start_y, end_x, end_y);
+  pathplanner->AStarSearch(start_x, start_y, end_x, end_y);
 }
 
 void Controller::HandleInput(bool &running, Snake &snake) const {
