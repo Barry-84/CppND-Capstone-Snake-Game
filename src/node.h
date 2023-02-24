@@ -17,9 +17,10 @@
       int y;
 
       void FindNeighbours();
-      float distance(Node other) const {
-        return std::sqrt(std::pow((x - other.x), 2) + std::pow((y - other.y), 2));
-      }
+      //float distance(Node other) const {
+      //  return std::sqrt(std::pow((x - other.x), 2) + std::pow((y - other.y), 2));
+      //}
+      float distance(Node other) const;
 
       Node(){}
       //Node(int idx, RouteModel* search_model, Model::Node node) : (Model::Node(node), parent_model(search_model), index(idx) {}

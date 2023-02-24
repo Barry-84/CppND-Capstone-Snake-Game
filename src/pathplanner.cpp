@@ -72,8 +72,10 @@ void PathPlanner::AStarSearch(int start_x, int start_y, int end_x, int end_y) {
     end_x = end_x;
     end_y = end_y;
 
+    start_node = new Node;
     start_node->x = start_x;
     start_node->y = start_y;
+    end_node = new Node;
     end_node->x = end_x;
     end_node->y = end_y;
 
