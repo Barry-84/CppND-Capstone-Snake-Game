@@ -2,10 +2,13 @@
 #include <iostream>
 #include "pathplanner.h"
 
-//PathPlanner::PathPlanner(const std::size_t grid_width, const std::size_t grid_height) : grid(grid.resize(grid_width, grid_height)) {
-PathPlanner::PathPlanner(const std::size_t grid_width, const std::size_t grid_height) {
-    grid.resize(grid_height, std::vector<Node*>(grid_width));
-    std::cout << "grid height: " << grid.size() << ", grid width: " << grid[0].size() << std::endl;
+// //PathPlanner::PathPlanner(const std::size_t grid_width, const std::size_t grid_height) : grid(grid.resize(grid_width, grid_height)) {
+// PathPlanner::PathPlanner(const std::size_t grid_width, const std::size_t grid_height) {
+//     grid.resize(grid_height, std::vector<Node*>(grid_width));
+//     std::cout << "grid height: " << grid.size() << ", grid width: " << grid[0].size() << std::endl;
+// }
+PathPlanner::PathPlanner(GridModel &model, int start_x, int start_y, int end_x, int end_y) : m_model(model) {
+
 }
 
 float PathPlanner::CalculateHValue(Node const *node) {

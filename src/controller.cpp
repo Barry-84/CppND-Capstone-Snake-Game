@@ -15,7 +15,9 @@ void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
 }
 void Controller::PlanPath(int start_x, int start_y, int end_x, int end_y) {
   //pathplanner = std::make_unique<PathPlanner>(grid_width, grid_height); 
-  pathplanner.reset(new PathPlanner(grid_width, grid_height));
+  //pathplanner.reset(new PathPlanner(grid_width, grid_height));
+  GridModel model(grid_width, grid_height);
+  pathplanner.reset(new PathPlanner());
   //std::vector<Node*> path = pathplanner->AStarSearch(start_x, start_y, end_x, end_y);
   pathplanner->AStarSearch(start_x, start_y, end_x, end_y);
 }

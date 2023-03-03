@@ -39,6 +39,12 @@ class GridModel {
       //Node* FindNeighbour(std::vector<int< node_indices);
       //RouteModel* parent_model = nullptr;
   };
+
+    GridModel(const std::size_t grid_width, const std::size_t grid_height);
+    std::vector<Node*> path;
+
+  private:
+    std::vector<std::vector<Node*>> grid;
 };
 
 #endif
