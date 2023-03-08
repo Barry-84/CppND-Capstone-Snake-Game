@@ -148,6 +148,9 @@ CMakeFiles/SnakeGame.dir/src/game.cpp.o: /usr/include/SDL2/SDL_video.h
 CMakeFiles/SnakeGame.dir/src/game.cpp.o: /usr/include/SDL2/begin_code.h
 CMakeFiles/SnakeGame.dir/src/game.cpp.o: /usr/include/SDL2/close_code.h
 
+CMakeFiles/SnakeGame.dir/src/gridmodel.cpp.o: ../src/gridmodel.cpp
+CMakeFiles/SnakeGame.dir/src/gridmodel.cpp.o: ../src/gridmodel.h
+
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/controller.h
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/food.h
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/game.h

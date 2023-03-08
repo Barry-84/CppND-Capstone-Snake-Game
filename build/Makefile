@@ -204,6 +204,33 @@ src/game.cpp.s:
 	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/game.cpp.s
 .PHONY : src/game.cpp.s
 
+src/gridmodel.o: src/gridmodel.cpp.o
+
+.PHONY : src/gridmodel.o
+
+# target to build an object file
+src/gridmodel.cpp.o:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/gridmodel.cpp.o
+.PHONY : src/gridmodel.cpp.o
+
+src/gridmodel.i: src/gridmodel.cpp.i
+
+.PHONY : src/gridmodel.i
+
+# target to preprocess a source file
+src/gridmodel.cpp.i:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/gridmodel.cpp.i
+.PHONY : src/gridmodel.cpp.i
+
+src/gridmodel.s: src/gridmodel.cpp.s
+
+.PHONY : src/gridmodel.s
+
+# target to generate assembly for a file
+src/gridmodel.cpp.s:
+	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/gridmodel.cpp.s
+.PHONY : src/gridmodel.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -357,6 +384,9 @@ help:
 	@echo "... src/game.o"
 	@echo "... src/game.i"
 	@echo "... src/game.s"
+	@echo "... src/gridmodel.o"
+	@echo "... src/gridmodel.i"
+	@echo "... src/gridmodel.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

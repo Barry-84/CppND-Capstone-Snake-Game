@@ -50,6 +50,12 @@ renderer.h
 snake.h
 /home/workspace/CppND-Capstone-Snake-Game/src/snake.h
 
+/home/workspace/CppND-Capstone-Snake-Game/src/gridmodel.cpp
+algorithm
+-
+gridmodel.h
+/home/workspace/CppND-Capstone-Snake-Game/src/gridmodel.h
+
 /home/workspace/CppND-Capstone-Snake-Game/src/gridmodel.h
 vector
 -
@@ -69,8 +75,6 @@ game.h
 /home/workspace/CppND-Capstone-Snake-Game/src/game.h
 renderer.h
 /home/workspace/CppND-Capstone-Snake-Game/src/renderer.h
-
-/home/workspace/CppND-Capstone-Snake-Game/src/node.cpp
 
 /home/workspace/CppND-Capstone-Snake-Game/src/pathplanner.cpp
 algorithm

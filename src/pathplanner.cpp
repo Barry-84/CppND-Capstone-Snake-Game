@@ -7,17 +7,18 @@
 //     grid.resize(grid_height, std::vector<Node*>(grid_width));
 //     std::cout << "grid height: " << grid.size() << ", grid width: " << grid[0].size() << std::endl;
 // }
-PathPlanner::PathPlanner(GridModel &model, int start_x, int start_y, int end_x, int end_y) : m_model(model) {
+PathPlanner::PathPlanner(GridModel &model, int start_x, int start_y, int end_x, int end_y) : 
+             m_model(model), start_x(start_x), start_y(start_y), end_x(end_x), end_y(end_y) {
 
 }
 
-float PathPlanner::CalculateHValue(Node const *node) {
+float PathPlanner::CalculateHValue(GridModel::Node* const node) {
     return node->distance(*end_node);
 }
 
-void PathPlanner::AddNeighbours(Node *current_node) {
+void PathPlanner::AddNeighbours(GridModel::Node *current_node) {
     current_node->FindNeighbours();
-    for (Node* node : current_node->neighbours) {
+    for (GridModel::Node* node : current_node->neighbours) {
         if (!node->visited) {
             node->parent = current_node;
             node->h_value = CalculateHValue(node);
@@ -28,20 +29,20 @@ void PathPlanner::AddNeighbours(Node *current_node) {
     }
 }
 
-bool sortBySumDescending(Node const *node1, Node const *node2) {
+bool sortBySumDescending(GridModel::Node const *node1, GridModel::Node const *node2) {
     return (node1->h_value + node1->g_value) > (node2->h_value + node2->g_value);
 }
 
-Node* PathPlanner::NextNode() {
+GridModel::Node* PathPlanner::NextNode() {
     // could also use lambda expression instead of auxiliary (predicate?) function sortBySumDescending.
     std::sort(open_list.begin(), open_list.end(), sortBySumDescending);
-    Node* lowestSumNode = open_list.back();
+    GridModel::Node* lowestSumNode = open_list.back();
     open_list.pop_back();
     return lowestSumNode;
 }
 
 //std::vector<Node> PathPlanner::ConstructFinalPath(Node *current_node) {
-void PathPlanner::ConstructFinalPath(Node *current_node) {
+void PathPlanner::ConstructFinalPath(GridModel::Node *current_node) {
     // Create path_found vector
     distance = 0.0f;
     //std::vector<Node> path_found;
@@ -67,18 +68,21 @@ void PathPlanner::ConstructFinalPath(Node *current_node) {
 }
 
 //std::vector<Node*> PathPlanner::AStarSearch(int start_x, int start_y, int end_x, int end_y) {
-void PathPlanner::AStarSearch(int start_x, int start_y, int end_x, int end_y) {
-    Node *current_node = nullptr;
+//void PathPlanner::AStarSearch(int start_x, int start_y, int end_x, int end_y) {
+void PathPlanner::AStarSearch() {
+    GridModel::Node *current_node = nullptr;
 
-    start_x = start_x;
-    start_y = start_y;
-    end_x = end_x;
-    end_y = end_y;
+    // start_x = start_x;
+    // start_y = start_y;
+    // end_x = end_x;
+    // end_y = end_y;
 
-    start_node = new Node;
+    //start_node = new Node;
+    start_node = m_model.GetNodeAtPosition(start_x, start_y);
     start_node->x = start_x;
     start_node->y = start_y;
-    end_node = new Node;
+    //end_node = new Node;
+    end_node = m_model.GetNodeAtPosition(end_x, end_y);
     end_node->x = end_x;
     end_node->y = end_y;
 

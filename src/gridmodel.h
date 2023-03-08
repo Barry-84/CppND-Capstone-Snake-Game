@@ -13,11 +13,11 @@ class GridModel {
 
   class Node {
     public:
-      Node* parent = nullptr;
+      GridModel::Node* parent = nullptr;
       int h_value = std::numeric_limits<int>::max();
       int g_value = 0;
       bool visited = false;
-      std::vector<Node*> neighbours;
+      std::vector<GridModel::Node*> neighbours;
       int x;
       int y;
 
@@ -25,7 +25,7 @@ class GridModel {
       //float distance(Node other) const {
       //  return std::sqrt(std::pow((x - other.x), 2) + std::pow((y - other.y), 2));
       //}
-      float distance(Node other) const;
+      float distance(GridModel::Node other) const;
 
       Node(){}
       Node(GridModel* search_model) : parent_model(search_model) {}
@@ -41,10 +41,11 @@ class GridModel {
   };
 
     GridModel(const std::size_t grid_width, const std::size_t grid_height);
+    GridModel::Node* GetNodeAtPosition(int x, int y);
     std::vector<Node*> path;
 
   private:
-    std::vector<std::vector<Node*>> grid;
+    std::vector<std::vector<GridModel::Node*>> grid;
 };
 
 #endif

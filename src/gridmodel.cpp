@@ -28,6 +28,10 @@ void GridModel::Node::FindNeighbours() {
     }
 }
 
+GridModel::Node* GridModel::GetNodeAtPosition(int x, int y) {
+  return grid[x][y];
+}
+
 float GridModel::Node::distance(Node other) const {
     return std::sqrt(std::pow((x - other.x), 2) + std::pow((y - other.y), 2));
 }
