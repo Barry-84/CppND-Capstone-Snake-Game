@@ -46,6 +46,7 @@ class GridModel {
 
   private:
     std::vector<std::vector<GridModel::Node*>> grid;
+    //std::vector<GridModel::Node*> grid;
 };
 
 #endif

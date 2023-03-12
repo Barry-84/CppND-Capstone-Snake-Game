@@ -1,13 +1,24 @@
 #include <algorithm>
+#include <iostream>
 #include "gridmodel.h"
 
 GridModel::GridModel(const std::size_t grid_width, const std::size_t grid_height) {
     
-    for (size_t i = 1; i < grid.size(); i++) {
-      grid.emplace_back(GridModel::Node(this));
-    }
-    grid.resize(grid_height, std::vector<GridModel::Node*>(grid_width));
+    // for (size_t i = 1; i < grid.size(); i++) {
+    //   grid.emplace_back(GridModel::Node(this));
+    // }
+    //grid.resize(grid_height, std::vector<GridModel::Node*>(grid_width));
     //std::cout << "grid height: " << grid.size() << ", grid width: " << grid[0].size() << std::endl;
+ 
+    for (size_t i = 0; i < grid_height; i++) {
+        int j = 0;
+        grid.emplace_back();
+        while (j < grid_width) {
+            grid.back().push_back(new GridModel::Node(this));
+            j++;   
+        }
+    }
+    std::cout << "grid height: " << grid.size() << ", grid width: " << grid[0].size() << std::endl;
 }
 
 // Finds the 4 neighbours north, south, east and west of the current node.
