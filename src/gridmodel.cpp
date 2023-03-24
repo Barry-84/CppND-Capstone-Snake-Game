@@ -28,11 +28,13 @@ void GridModel::Node::FindNeighbours() {
     for (auto& delta : neighboursDeltas) {
         //Node* neighbour = new Node;
         ////std::unique_ptr<Node> neighbour = std::make_unique<Node>;
-        GridModel::Node* neighbour = parent_model->grid[this->x + delta[0]][this->y + delta[1]];
-        neighbour->x = this->x + delta[0];
-        neighbour->y = this->y + delta[1];
-        if (neighbour->x >= 0 && neighbour->x <= 32 && neighbour->y >= 0 && neighbour->x <= 32) {
+        if (this->x + delta[0] >= 0 && this->x + delta[0] < 32 && this->y + delta[1] >= 0 && this->y + delta[1] < 32) {
+            GridModel::Node* neighbour = parent_model->grid[this->x + delta[0]][this->y + delta[1]];
+            neighbour->x = this->x + delta[0];
+            neighbour->y = this->y + delta[1];
+        //if (neighbour->x >= 0 && neighbour->x <= 32 && neighbour->y >= 0 && neighbour->y <= 32) {
             neighbours.push_back(neighbour);
+        //}
         }
         //delete neighbour;
         ////neighbours.push_back(grid[this->x + delta[0], this->y + delta[1]]);
