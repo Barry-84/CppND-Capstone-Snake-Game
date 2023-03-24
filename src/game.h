@@ -22,6 +22,7 @@ class Game {
   Snake snake;
   //SDL_Point food, magic_food;
   Food food, magic_food;
+  std::vector<GridModel::Node*> path;
 
   std::random_device dev;
   std::mt19937 engine;

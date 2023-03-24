@@ -38,7 +38,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake snake, Food &food, Food &magic_food) {
+void Renderer::Render(Snake snake, Food &food, Food &magic_food, std::vector<GridModel::Node*> &path) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -66,6 +66,14 @@ void Renderer::Render(Snake snake, Food &food, Food &magic_food) {
     block.y = point.y * block.h;
     SDL_RenderFillRect(sdl_renderer, &block);
   }
+
+  // // Render path
+  // SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  // for (SDL_Point const &point : path) {
+  //   block.x = point.x * block.w;
+  //   block.y = point.y * block.h;
+  //   SDL_RenderFillRect(sdl_renderer, &block);
+  // }
 
   // Render snake's head
   block.x = static_cast<int>(snake.GetHeadX()) * block.w; // "the snake's head has float x and y coordinates and so we cast them to integers.""

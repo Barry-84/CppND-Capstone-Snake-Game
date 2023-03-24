@@ -26,11 +26,14 @@ void Game::Run(Controller &controller, Renderer &renderer,
   while (running) {
     frame_start = SDL_GetTicks();
 
+    //controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
+    path = controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
+    //controller.AutoGuideSnake(snake);
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
-    controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
+
     Update();
-    renderer.Render(snake, food, magic_food);
+    renderer.Render(snake, food, magic_food, path);
 
     frame_end = SDL_GetTicks();
 

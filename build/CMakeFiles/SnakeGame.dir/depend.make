@@ -210,6 +210,7 @@ CMakeFiles/SnakeGame.dir/src/pathplanner.cpp.o: ../src/pathplanner.cpp
 CMakeFiles/SnakeGame.dir/src/pathplanner.cpp.o: ../src/pathplanner.h
 
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/food.h
+CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/gridmodel.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/renderer.cpp
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/renderer.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/snake.h

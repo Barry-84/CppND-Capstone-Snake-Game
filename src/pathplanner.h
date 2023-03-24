@@ -11,7 +11,8 @@ class PathPlanner {
     PathPlanner(GridModel &model, int start_x, int start_y, int end_x, int end_y);
     int GetDistance() const { return distance; }
     //void AStarSearch(int start_x, int start_y, int end_x, int end_y);
-    void AStarSearch();
+    // void AStarSearch();
+    std::vector<GridModel::Node*> AStarSearch();
     //std::vector<Node*> AStarSearch(int start_x, int start_y, int end_x, int end_y);
 
     void AddNeighbours(GridModel::Node* current_node);

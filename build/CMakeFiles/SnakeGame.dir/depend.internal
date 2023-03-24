@@ -211,6 +211,7 @@ CMakeFiles/SnakeGame.dir/src/pathplanner.cpp.o
  /home/workspace/CppND-Capstone-Snake-Game/src/pathplanner.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o
  /home/workspace/CppND-Capstone-Snake-Game/src/food.h
+ /home/workspace/CppND-Capstone-Snake-Game/src/gridmodel.h
  /home/workspace/CppND-Capstone-Snake-Game/src/renderer.cpp
  /home/workspace/CppND-Capstone-Snake-Game/src/renderer.h
  /home/workspace/CppND-Capstone-Snake-Game/src/snake.h

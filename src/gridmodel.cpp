@@ -44,5 +44,7 @@ GridModel::Node* GridModel::GetNodeAtPosition(int x, int y) {
 }
 
 float GridModel::Node::distance(Node other) const {
-    return std::sqrt(std::pow((x - other.x), 2) + std::pow((y - other.y), 2));
+    // Manhattan distance
+    return std::abs(x - other.x) + std::abs(y - other.y);
+    //return std::sqrt(std::pow((x - other.x), 2) + std::pow((y - other.y), 2));
 }
