@@ -23,13 +23,38 @@ std::vector<GridModel::Node*> Controller::PlanPath(int start_x, int start_y, int
   //std::vector<Node*> path = pathplanner->AStarSearch(start_x, start_y, end_x, end_y);
   //pathplanner->AStarSearch(start_x, start_y, end_x, end_y);
   //pathplanner.AStarSearch();
-  path = pathplanner.AStarSearch();
+  return path = pathplanner.AStarSearch();
 }
 
 void Controller::AutoGuideSnake(Snake &snake) {
   auto nextPosition = path.front();
   int diffX = nextPosition->x - static_cast<int>(snake.GetHeadX());
   int diffY = nextPosition->y - static_cast<int>(snake.GetHeadY());
+
+  if (diffX == 0) {
+    switch (diffY) {
+      case -1:
+        ChangeDirection(snake, Snake::Direction::kUp,
+                          Snake::Direction::kDown);
+        break;
+      case +1:
+        ChangeDirection(snake, Snake::Direction::kDown,
+                          Snake::Direction::kUp);
+        break;
+    }
+  } else { // diffY == 0
+    switch (diffX) {
+      case -1:
+        ChangeDirection(snake, Snake::Direction::kLeft,
+                          Snake::Direction::kRight);
+        break;
+      case +1:
+        ChangeDirection(snake, Snake::Direction::kRight,
+                          Snake::Direction::kLeft);
+        break;
+    }
+  }
+
 }
 
 void Controller::HandleInput(bool &running, Snake &snake) const {

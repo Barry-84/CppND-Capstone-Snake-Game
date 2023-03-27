@@ -57,7 +57,8 @@ void PathPlanner::ConstructFinalPath(GridModel::Node *current_node) {
 
     // push the start node to the path.
     //path_found.push_back(*current_node);
-    path.push_back(current_node);
+    // Don't push the start node to the path. The snake's head is already there.
+    //path.push_back(current_node);
 
     //distance *= m_Model.MetricScale(); // Multiply the distance by the scale of the map to get meters.
     //reverse(path_found.begin(), path_found.end());

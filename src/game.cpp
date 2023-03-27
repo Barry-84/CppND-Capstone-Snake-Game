@@ -27,8 +27,9 @@ void Game::Run(Controller &controller, Renderer &renderer,
     frame_start = SDL_GetTicks();
 
     //controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
-    path = controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
-    //controller.AutoGuideSnake(snake);
+    //path = controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
+    std::vector<GridModel::Node*> path = controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
+    controller.AutoGuideSnake(snake);
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
 
