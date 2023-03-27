@@ -7,8 +7,8 @@
 //     grid.resize(grid_height, std::vector<Node*>(grid_width));
 //     std::cout << "grid height: " << grid.size() << ", grid width: " << grid[0].size() << std::endl;
 // }
-PathPlanner::PathPlanner(GridModel &model, int start_x, int start_y, int end_x, int end_y) : 
-             m_model(model), start_x(start_x), start_y(start_y), end_x(end_x), end_y(end_y) {
+PathPlanner::PathPlanner(GridModel &model, Snake &snake, int start_x, int start_y, int end_x, int end_y) : 
+             m_model(model), m_snake(snake), start_x(start_x), start_y(start_y), end_x(end_x), end_y(end_y) {
 
 }
 
@@ -19,7 +19,7 @@ float PathPlanner::CalculateHValue(GridModel::Node* const node) {
 void PathPlanner::AddNeighbours(GridModel::Node *current_node) {
     current_node->FindNeighbours();
     for (GridModel::Node* node : current_node->neighbours) {
-        if (!node->visited) {
+        if (!node->visited && !m_snake.SnakeCell(node->x, node->y)) {
             node->parent = current_node;
             node->h_value = CalculateHValue(node);
             node->g_value = current_node->g_value + current_node->distance(*node);

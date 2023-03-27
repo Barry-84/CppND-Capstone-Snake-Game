@@ -28,7 +28,7 @@ void Game::Run(Controller &controller, Renderer &renderer,
 
     //controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
     //path = controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
-    std::vector<GridModel::Node*> path = controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
+    std::vector<GridModel::Node*> path = controller.PlanPath(snake, snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
     controller.AutoGuideSnake(snake);
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);

@@ -4,11 +4,12 @@
 #include "gridmodel.h"
 //#include "node.h"
 //#include "SDL.h"
+#include "snake.h"
 
 class PathPlanner {
   public:
     //PathPlanner(const std::size_t grid_width, const std::size_t grid_height);
-    PathPlanner(GridModel &model, int start_x, int start_y, int end_x, int end_y);
+    PathPlanner(GridModel &model, Snake &snake, int start_x, int start_y, int end_x, int end_y);
     int GetDistance() const { return distance; }
     //void AStarSearch(int start_x, int start_y, int end_x, int end_y);
     // void AStarSearch();
@@ -35,6 +36,7 @@ class PathPlanner {
     int end_x;
     int end_y;
     GridModel &m_model;
+    Snake &m_snake;
     
 };
 

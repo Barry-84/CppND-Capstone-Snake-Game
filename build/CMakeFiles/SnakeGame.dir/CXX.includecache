@@ -6,24 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/workspace/CppND-Capstone-Snake-Game/src/controller.cpp
-controller.h
-/home/workspace/CppND-Capstone-Snake-Game/src/controller.h
-iostream
--
-SDL.h
-/home/workspace/CppND-Capstone-Snake-Game/src/SDL.h
-snake.h
-/home/workspace/CppND-Capstone-Snake-Game/src/snake.h
-
-/home/workspace/CppND-Capstone-Snake-Game/src/controller.h
-memory
--
-snake.h
-/home/workspace/CppND-Capstone-Snake-Game/src/snake.h
-pathplanner.h
-/home/workspace/CppND-Capstone-Snake-Game/src/pathplanner.h
-
 /home/workspace/CppND-Capstone-Snake-Game/src/gridmodel.h
 vector
 -
@@ -34,9 +16,19 @@ cmath
 array
 -
 
+/home/workspace/CppND-Capstone-Snake-Game/src/pathplanner.cpp
+algorithm
+-
+iostream
+-
+pathplanner.h
+/home/workspace/CppND-Capstone-Snake-Game/src/pathplanner.h
+
 /home/workspace/CppND-Capstone-Snake-Game/src/pathplanner.h
 gridmodel.h
 /home/workspace/CppND-Capstone-Snake-Game/src/gridmodel.h
+snake.h
+/home/workspace/CppND-Capstone-Snake-Game/src/snake.h
 
 /home/workspace/CppND-Capstone-Snake-Game/src/snake.h
 vector
