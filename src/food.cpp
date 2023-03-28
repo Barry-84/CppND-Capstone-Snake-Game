@@ -1,11 +1,11 @@
 #include "food.h"
 
 void Food::setPointX(int& x) {
-    point.x = x;
+ point.x = x;
 }
 
 void Food::setPointY(int& y) {
-    point.y = y;
+  point.y = y;
 }
 
 int Food::getPointX() {

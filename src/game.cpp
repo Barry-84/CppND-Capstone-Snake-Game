@@ -12,8 +12,6 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
   PlaceMagicFood();
 }
 
-//void Game::Run(Controller const &controller, Renderer &renderer,
-//               std::size_t target_frame_duration) {
 void Game::Run(Controller &controller, Renderer &renderer,
                std::size_t target_frame_duration) {
   Uint32 title_timestamp = SDL_GetTicks();
@@ -26,15 +24,13 @@ void Game::Run(Controller &controller, Renderer &renderer,
   while (running) {
     frame_start = SDL_GetTicks();
 
-    //controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
-    //path = controller.PlanPath(snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
     std::vector<GridModel::Node*> path = controller.PlanPath(snake, snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
     controller.AutoGuideSnake(snake);
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
 
     Update();
-    renderer.Render(snake, food, magic_food, path);
+    renderer.Render(snake, food, magic_food);
 
     frame_end = SDL_GetTicks();
 

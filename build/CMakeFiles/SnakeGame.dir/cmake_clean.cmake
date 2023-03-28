@@ -5,7 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/SnakeGame.dir/src/renderer.cpp.o"
   "CMakeFiles/SnakeGame.dir/src/snake.cpp.o"
   "CMakeFiles/SnakeGame.dir/src/food.cpp.o"
-  "CMakeFiles/SnakeGame.dir/src/node.cpp.o"
   "CMakeFiles/SnakeGame.dir/src/pathplanner.cpp.o"
   "CMakeFiles/SnakeGame.dir/src/gridmodel.cpp.o"
   "SnakeGame.pdb"

@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/workspace/CppND-Capstone-Snake-Game/src/game.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/game.cpp.o"
   "/home/workspace/CppND-Capstone-Snake-Game/src/gridmodel.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/gridmodel.cpp.o"
   "/home/workspace/CppND-Capstone-Snake-Game/src/main.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/main.cpp.o"
-  "/home/workspace/CppND-Capstone-Snake-Game/src/node.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/node.cpp.o"
   "/home/workspace/CppND-Capstone-Snake-Game/src/pathplanner.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/pathplanner.cpp.o"
   "/home/workspace/CppND-Capstone-Snake-Game/src/renderer.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/renderer.cpp.o"
   "/home/workspace/CppND-Capstone-Snake-Game/src/snake.cpp" "/home/workspace/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/snake.cpp.o"

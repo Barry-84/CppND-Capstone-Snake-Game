@@ -5,10 +5,10 @@
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
                    const std::size_t grid_width, const std::size_t grid_height)
-    : screen_width(screen_width),
-      screen_height(screen_height),
-      grid_width(grid_width),
-      grid_height(grid_height) {
+        : screen_width(screen_width),
+          screen_height(screen_height),
+          grid_width(grid_width),
+          grid_height(grid_height) {
   // Initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     std::cerr << "SDL could not initialize.\n";
@@ -38,7 +38,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake snake, Food &food, Food &magic_food, std::vector<GridModel::Node*> &path) {
+void Renderer::Render(Snake snake, Food &food, Food &magic_food) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -66,14 +66,6 @@ void Renderer::Render(Snake snake, Food &food, Food &magic_food, std::vector<Gri
     block.y = point.y * block.h;
     SDL_RenderFillRect(sdl_renderer, &block);
   }
-
-  // // Render path
-  // SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-  // for (SDL_Point const &point : path) {
-  //   block.x = point.x * block.w;
-  //   block.y = point.y * block.h;
-  //   SDL_RenderFillRect(sdl_renderer, &block);
-  // }
 
   // Render snake's head
   block.x = static_cast<int>(snake.GetHeadX()) * block.w; // "the snake's head has float x and y coordinates and so we cast them to integers.""

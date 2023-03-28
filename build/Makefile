@@ -258,33 +258,6 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/node.o: src/node.cpp.o
-
-.PHONY : src/node.o
-
-# target to build an object file
-src/node.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/node.cpp.o
-.PHONY : src/node.cpp.o
-
-src/node.i: src/node.cpp.i
-
-.PHONY : src/node.i
-
-# target to preprocess a source file
-src/node.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/node.cpp.i
-.PHONY : src/node.cpp.i
-
-src/node.s: src/node.cpp.s
-
-.PHONY : src/node.s
-
-# target to generate assembly for a file
-src/node.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/node.cpp.s
-.PHONY : src/node.cpp.s
-
 src/pathplanner.o: src/pathplanner.cpp.o
 
 .PHONY : src/pathplanner.o
@@ -390,9 +363,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/node.o"
-	@echo "... src/node.i"
-	@echo "... src/node.s"
 	@echo "... src/pathplanner.o"
 	@echo "... src/pathplanner.i"
 	@echo "... src/pathplanner.s"

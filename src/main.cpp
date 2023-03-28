@@ -12,7 +12,6 @@ int main() {
   constexpr std::size_t kGridHeight{32};
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
-  //Controller controller;
   Controller controller(kGridWidth, kGridHeight);
   Game game(kGridWidth, kGridHeight);
   game.Run(controller, renderer, kMsPerFrame);

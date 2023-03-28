@@ -3,42 +3,40 @@
 #include "gridmodel.h"
 
 GridModel::GridModel(const std::size_t grid_width, const std::size_t grid_height) {
-    
-    // for (size_t i = 1; i < grid.size(); i++) {
-    //   grid.emplace_back(GridModel::Node(this));
-    // }
-    //grid.resize(grid_height, std::vector<GridModel::Node*>(grid_width));
-    //std::cout << "grid height: " << grid.size() << ", grid width: " << grid[0].size() << std::endl;
- 
-    for (size_t i = 0; i < grid_height; i++) {
-        int j = 0;
-        grid.emplace_back();
-        while (j < grid_width) {
-            grid.back().push_back(new GridModel::Node(this));
-            j++;   
-        }
+
+  for (size_t i = 0; i < grid_height; i++) {
+    int j = 0;
+    grid.emplace_back();
+    while (j < grid_width) {
+      grid.back().push_back(new GridModel::Node(this));
+      j++;   
     }
-    std::cout << "grid height: " << grid.size() << ", grid width: " << grid[0].size() << std::endl;
+  }
+
 }
 
 // Finds the 4 neighbours north, south, east and west of the current node.
 // Note the snake cannot moved diagonally as it also cannot do so when
 // controlled manually. 
 void GridModel::Node::FindNeighbours() {
-    for (auto& delta : neighboursDeltas) {
-        //Node* neighbour = new Node;
-        ////std::unique_ptr<Node> neighbour = std::make_unique<Node>;
-        if (this->x + delta[0] >= 0 && this->x + delta[0] < 32 && this->y + delta[1] >= 0 && this->y + delta[1] < 32) {
-            GridModel::Node* neighbour = parent_model->grid[this->x + delta[0]][this->y + delta[1]];
-            neighbour->x = this->x + delta[0];
-            neighbour->y = this->y + delta[1];
-        //if (neighbour->x >= 0 && neighbour->x <= 32 && neighbour->y >= 0 && neighbour->y <= 32) {
-            neighbours.push_back(neighbour);
-        //}
-        }
-        //delete neighbour;
-        ////neighbours.push_back(grid[this->x + delta[0], this->y + delta[1]]);
-    }
+
+  for (auto& delta : neighboursDeltas) {
+    int head_x = (this->x + delta[0] + 32) % 32;
+    int head_y = (this->y + delta[1] + 32) % 32;
+
+    GridModel::Node* neighbour = parent_model->grid[head_x][head_y];
+    neighbour->x = head_x;
+    neighbour->y = head_y;
+    neighbours.push_back(neighbour);
+
+    // if (this->x + delta[0] >= 0 && this->x + delta[0] < 32 && this->y + delta[1] >= 0 && this->y + delta[1] < 32) {
+    //   GridModel::Node* neighbour = parent_model->grid[this->x + delta[0]][this->y + delta[1]];
+    //   neighbour->x = this->x + delta[0];
+    //   neighbour->y = this->y + delta[1];
+    //   neighbours.push_back(neighbour);
+    // }
+  }
+
 }
 
 GridModel::Node* GridModel::GetNodeAtPosition(int x, int y) {
@@ -46,7 +44,6 @@ GridModel::Node* GridModel::GetNodeAtPosition(int x, int y) {
 }
 
 float GridModel::Node::distance(Node other) const {
-    // Manhattan distance
-    return std::abs(x - other.x) + std::abs(y - other.y);
-    //return std::sqrt(std::pow((x - other.x), 2) + std::pow((y - other.y), 2));
+  // Manhattan distance
+  return std::abs(x - other.x) + std::abs(y - other.y);
 }

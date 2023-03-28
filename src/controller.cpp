@@ -3,8 +3,8 @@
 #include "SDL.h"
 #include "snake.h"
 
-Controller::Controller(const std::size_t grid_width, const std::size_t grid_height) :
-    grid_width(grid_width), grid_height(grid_height) {
+Controller::Controller(const std::size_t grid_width, const std::size_t grid_height)
+          : grid_width(grid_width), grid_height(grid_height) {
 
 }
 
@@ -13,48 +13,45 @@ void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
   if (snake.GetDirection() != opposite || snake.GetSize() == 1) snake.SetDirection(input);
   return;
 }
-//void Controller::PlanPath(int start_x, int start_y, int end_x, int end_y) {
+
 std::vector<GridModel::Node*> Controller::PlanPath(Snake &snake, int start_x, int start_y, int end_x, int end_y) {
-  //pathplanner = std::make_unique<PathPlanner>(grid_width, grid_height); 
-  //pathplanner.reset(new PathPlanner(grid_width, grid_height));
   GridModel model(grid_width, grid_height);
-  //pathplanner.reset(new PathPlanner());
   PathPlanner pathplanner(model, snake, start_x, start_y, end_x, end_y);
-  //std::vector<Node*> path = pathplanner->AStarSearch(start_x, start_y, end_x, end_y);
-  //pathplanner->AStarSearch(start_x, start_y, end_x, end_y);
-  //pathplanner.AStarSearch();
   return path = pathplanner.AStarSearch();
 }
 
 void Controller::AutoGuideSnake(Snake &snake) {
-  if (false == path.empty()) {
-    auto nextPosition = path.front();
+  
+  // path is empty right before snake dies.
+  if (path.empty()) {
+    return;
+  }
 
-    int diffX = nextPosition->x - static_cast<int>(snake.GetHeadX());
-    int diffY = nextPosition->y - static_cast<int>(snake.GetHeadY());
+  auto nextPosition = path.front();
+  int diffX = nextPosition->x - static_cast<int>(snake.GetHeadX());
+  int diffY = nextPosition->y - static_cast<int>(snake.GetHeadY());
 
-    if (diffX == 0) {
-      switch (diffY) {
-        case -1:
-          ChangeDirection(snake, Snake::Direction::kUp,
-                            Snake::Direction::kDown);
-          break;
-        case +1:
-          ChangeDirection(snake, Snake::Direction::kDown,
-                            Snake::Direction::kUp);
-          break;
-      }
-    } else { // diffY == 0
-      switch (diffX) {
-        case -1:
-          ChangeDirection(snake, Snake::Direction::kLeft,
-                            Snake::Direction::kRight);
-          break;
-        case +1:
-          ChangeDirection(snake, Snake::Direction::kRight,
-                            Snake::Direction::kLeft);
-          break;
-      }
+  if (diffX == 0) {
+    switch (diffY) {
+      case -1:
+        ChangeDirection(snake, Snake::Direction::kUp,
+                          Snake::Direction::kDown);
+        break;
+      case +1:
+        ChangeDirection(snake, Snake::Direction::kDown,
+                          Snake::Direction::kUp);
+        break;
+    }
+  } else { // diffY == 0
+    switch (diffX) {
+      case -1:
+        ChangeDirection(snake, Snake::Direction::kLeft,
+                          Snake::Direction::kRight);
+        break;
+      case +1:
+        ChangeDirection(snake, Snake::Direction::kRight,
+                          Snake::Direction::kLeft);
+        break;
     }
   }
 }
