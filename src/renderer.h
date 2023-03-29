@@ -14,6 +14,7 @@ class Renderer {
     ~Renderer();
   
     void Render(Snake snake, Food &food, Food &magic_food);
+    void Render(Snake snake, Food &food);
     void UpdateWindowTitle(int score, int fps);
  
   private:

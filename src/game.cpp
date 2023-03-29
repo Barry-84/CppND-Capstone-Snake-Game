@@ -2,14 +2,17 @@
 #include <iostream>
 #include "SDL.h"
 
-Game::Game(std::size_t grid_width, std::size_t grid_height)
+Game::Game(std::size_t grid_width, std::size_t grid_height, Mode mode)
     : score{0},
       snake(grid_width, grid_height),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
-      random_h(0, static_cast<int>(grid_height - 1)) {
+      random_h(0, static_cast<int>(grid_height - 1)),
+      mode(mode) {
   PlaceFood();
-  PlaceMagicFood();
+  if (mode == Mode::kManual) {
+    PlaceMagicFood();
+  }
 }
 
 void Game::Run(Controller &controller, Renderer &renderer,
@@ -23,14 +26,21 @@ void Game::Run(Controller &controller, Renderer &renderer,
 
   while (running) {
     frame_start = SDL_GetTicks();
-
-    std::vector<GridModel::Node*> path = controller.PlanPath(snake, snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
-    controller.AutoGuideSnake(snake);
-    // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake);
+    
+    if (mode == Mode::kAuto) {
+      std::vector<GridModel::Node*> path = controller.PlanPath(snake, snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
+      controller.AutoGuideSnake(snake);
+    } else {
+      // Input, Update, Render - the main game loop.
+      controller.HandleInput(running, snake);
+    }
 
     Update();
-    renderer.Render(snake, food, magic_food);
+    if (mode == Mode::kAuto) {
+      renderer.Render(snake, food);
+    } else {
+      renderer.Render(snake, food, magic_food);
+    }
 
     frame_end = SDL_GetTicks();
 
@@ -101,7 +111,7 @@ void Game::Update() {
     // Grow snake and increase speed.
     snake.SetState(Snake::State::kGrowing);
     snake.SetSpeed(0.02);
-  } else if (magic_food.getPointX() == new_x && magic_food.getPointY() == new_y) {
+  } else if (mode == Mode::kManual && magic_food.getPointX() == new_x && magic_food.getPointY() == new_y) {
     PlaceMagicFood();
     if (snake.GetSize() > 1) {
       // Shrink snake and decrease speed.

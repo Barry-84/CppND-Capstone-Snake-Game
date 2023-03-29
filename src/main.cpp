@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "controller.h"
 #include "game.h"
 #include "renderer.h"
@@ -13,7 +14,18 @@ int main() {
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller(kGridWidth, kGridHeight);
-  Game game(kGridWidth, kGridHeight);
+
+  std::cout << "Enter 1 to control the snake manually. Enter 2 to control the snake automatically." << std::endl;
+  std::string input;
+  getline(std::cin, input);
+
+  Game::Mode mode = Game::Mode::kManual;
+  //if (input.compare("2") == 0) {
+    mode = Game::Mode::kAuto;
+  //}
+
+
+  Game game(kGridWidth, kGridHeight, mode);
   game.Run(controller, renderer, kMsPerFrame);
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";

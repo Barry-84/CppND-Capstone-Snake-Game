@@ -10,13 +10,16 @@
 
 class Game {
   public:
-    Game(std::size_t grid_width, std::size_t grid_height);
+    enum class Mode { kManual, kAuto };
+
+    Game(std::size_t grid_width, std::size_t grid_height, Mode mode);
     void Run(Controller &controller, Renderer &renderer,
              std::size_t target_frame_duration);
     int GetScore() const;
     int GetSize() const;
 
   private:
+    Mode mode = Mode::kManual;
     Snake snake;
     Food food, magic_food;
     std::vector<GridModel::Node*> path;
