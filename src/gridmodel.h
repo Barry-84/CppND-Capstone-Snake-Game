@@ -37,6 +37,8 @@ class GridModel {
 
   private:
     std::vector<std::vector<GridModel::Node*>> grid;
+    int grid_width;
+    int grid_height;
 };
 
 #endif

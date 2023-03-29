@@ -2,7 +2,8 @@
 #include <iostream>
 #include "gridmodel.h"
 
-GridModel::GridModel(const std::size_t grid_width, const std::size_t grid_height) {
+GridModel::GridModel(const std::size_t grid_width, const std::size_t grid_height)
+         : grid_width(grid_width), grid_height(grid_height){
 
   for (size_t i = 0; i < grid_height; i++) {
     int j = 0;
@@ -21,8 +22,8 @@ GridModel::GridModel(const std::size_t grid_width, const std::size_t grid_height
 void GridModel::Node::FindNeighbours() {
 
   for (auto& delta : neighboursDeltas) {
-    int head_x = (this->x + delta[0] + 32) % 32;
-    int head_y = (this->y + delta[1] + 32) % 32;
+    int head_x = (this->x + delta[0] + parent_model->grid_width) % parent_model->grid_width;
+    int head_y = (this->y + delta[1] + parent_model->grid_height) % parent_model->grid_height;
 
     GridModel::Node* neighbour = parent_model->grid[head_x][head_y];
     neighbour->x = head_x;
