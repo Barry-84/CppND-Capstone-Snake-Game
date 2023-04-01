@@ -12,18 +12,17 @@ int main() {
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
 
-  Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
-  Controller controller(kGridWidth, kGridHeight);
-
   std::cout << "Enter 1 to control the snake manually. Enter 2 to control the snake automatically." << std::endl;
   std::string input;
   getline(std::cin, input);
 
-  Game::Mode mode = Game::Mode::kManual;
-  //if (input.compare("2") == 0) {
-    mode = Game::Mode::kAuto;
-  //}
+  Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
+  Controller controller(kGridWidth, kGridHeight);
 
+  Game::Mode mode = Game::Mode::kManual;
+  if (input.compare("2") == 0) {
+    mode = Game::Mode::kAuto;
+  }
 
   Game game(kGridWidth, kGridHeight, mode);
   game.Run(controller, renderer, kMsPerFrame);

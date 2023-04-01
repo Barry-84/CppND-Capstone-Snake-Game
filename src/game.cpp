@@ -28,8 +28,14 @@ void Game::Run(Controller &controller, Renderer &renderer,
     frame_start = SDL_GetTicks();
     
     if (mode == Mode::kAuto) {
-      std::vector<GridModel::Node*> path = controller.PlanPath(snake, snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
-      controller.AutoGuideSnake(snake);
+      SDL_Event e;
+      SDL_PollEvent(&e);
+      if (e.type == SDL_QUIT) {
+        running = false;
+      } else {
+        std::vector<GridModel::Node*> path = controller.PlanPath(snake, snake.GetHeadX(), snake.GetHeadY(), food.getPointX(), food.getPointY());
+        controller.AutoGuideSnake(snake);
+      }
     } else {
       // Input, Update, Render - the main game loop.
       controller.HandleInput(running, snake);

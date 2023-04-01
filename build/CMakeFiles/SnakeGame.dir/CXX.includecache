@@ -18,6 +18,14 @@ pathplanner.h
 SDL.h
 /home/workspace/CppND-Capstone-Snake-Game/src/SDL.h
 
+/home/workspace/CppND-Capstone-Snake-Game/src/game.cpp
+game.h
+/home/workspace/CppND-Capstone-Snake-Game/src/game.h
+iostream
+-
+SDL.h
+/home/workspace/CppND-Capstone-Snake-Game/src/SDL.h
+
 /home/workspace/CppND-Capstone-Snake-Game/src/game.h
 random
 -
@@ -41,18 +49,6 @@ cmath
 -
 array
 -
-
-/home/workspace/CppND-Capstone-Snake-Game/src/main.cpp
-iostream
--
-string
--
-controller.h
-/home/workspace/CppND-Capstone-Snake-Game/src/controller.h
-game.h
-/home/workspace/CppND-Capstone-Snake-Game/src/game.h
-renderer.h
-/home/workspace/CppND-Capstone-Snake-Game/src/renderer.h
 
 /home/workspace/CppND-Capstone-Snake-Game/src/pathplanner.h
 gridmodel.h

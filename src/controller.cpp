@@ -21,7 +21,7 @@ std::vector<GridModel::Node*> Controller::PlanPath(Snake &snake, int start_x, in
 }
 
 void Controller::AutoGuideSnake(Snake &snake) {
-  
+
   // path is empty right before snake dies.
   if (path.empty()) {
     return;
