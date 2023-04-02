@@ -12,7 +12,12 @@ Writes to the console and gets user input regarding choice of manual or automati
 ### `renderer.cpp` and `renderer.h`
 ### `snake.cpp` and `snake.h`
 
+## Rubric Points
+The following rubric points are handled in this project.
+### Loops, Functions, I/O
+### Object Oriented Programming
 ## Dependencies for Running Locally
+
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
 * make >= 4.1 (Linux, Mac), 3.81 (Windows)
