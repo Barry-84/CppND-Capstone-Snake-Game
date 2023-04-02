@@ -15,7 +15,17 @@ Writes to the console and gets user input regarding choice of manual or automati
 ## Rubric Points
 The following rubric points are handled in this project.
 ### Loops, Functions, I/O
+- The project demonstrates an understanding of C++ functions and control structures.
+- The project accepts input from a user as part of the necessary operation of the program.
+
 ### Object Oriented Programming
+- The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.
+- All class data members are explicitly specified as public, protected, or private.
+- All class members that are set to argument values are initialized through member initialization lists.
+- One function is overloaded with different signatures for the same function name.
+
+### Memory Management
+- At least two variables are defined as references, or two functions use pass-by-reference in the project code.
 ## Dependencies for Running Locally
 
 * cmake >= 3.7
