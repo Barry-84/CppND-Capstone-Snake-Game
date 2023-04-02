@@ -2,6 +2,8 @@
 This is an implementation of the classic snake game, in which the user is given the option to control the snake manually or to allow the snake to be controlled automatically. Automatic snake control uses the A* search algorithm to calculate the snake's path to the food. Eating food causes the snakes size to grow by one and its speed to increase. In manual mode, the snake's size and speed can be reduced by eating magic food, making it easier to progress further in the game.
 ## Project structure
 ### `main.cpp`
+Writes to the console and gets user input regarding choice of manual or automatic control. Creates a renderer, controller and game object and calls the function Run() on the game object.
+
 ### `game.cpp` and `game.h`
 ### `controller.cpp` and `controller.h`
 ### `food.cpp` and `food.h`
