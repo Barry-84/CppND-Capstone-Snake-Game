@@ -1,6 +1,14 @@
 # CPPND: Capstone Snake Game with A* search
 This is an implementation of the classic snake game, in which the user is given the option to control the snake manually or to allow the snake to be controlled automatically. Automatic snake control uses the A* search algorithm to calculate the snake's path to the food. Eating food causes the snakes size to grow by one and its speed to increase. In manual mode, the snake's size and speed can be reduced by eating magic food, making it easier to progress further in the game.
-
+## Project structure
+main.cpp
+game.cpp and game.h
+controller.cpp and controller.h
+food.cpp and fod.h
+gridmodel.cpp and gridmodel.h
+pathplanner.cpp and pathplanner.h
+renderer.cpp and renderer.h
+snake.cpp and snake.h
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
