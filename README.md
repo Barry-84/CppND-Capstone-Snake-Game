@@ -18,6 +18,8 @@ The food class contains getter and setter functions for food coordinates. It als
 The constructor fills a vector of vectors of specified dimensions, with Nodes. The FindNeighbours() function finds the North, South, East and West neighbours of the given node. Since the snake is only permitted to move left, right, up and down, the manhattan distance is used in the function distance().
 
 ### `pathplanner.cpp` and `pathplanner.h`
+The function AStarSEarch() initializes the open list with the node of he snake's head and gets its neighbours. While the open list is not empty the current node is computed as the node with the lowest value of f = h + g, and its neighbours are found. As soon as the current node is the node containing food, the path is constructed and returned. The function AddNeighbours() looks at each neighbour of the give node and sets the attributes parent, h_value, g_value and visited. Finally the node is placed in the open list.
+
 ### `renderer.cpp` and `renderer.h`
 ### `snake.cpp` and `snake.h`
 
