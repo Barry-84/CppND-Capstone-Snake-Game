@@ -5,6 +5,8 @@ This is an implementation of the classic snake game, in which the user is given 
 Writes to the console and gets user input regarding choice of manual or automatic control. Creates a renderer, controller and game object and calls the function Run() on the game object.
 
 ### `game.cpp` and `game.h`
+Depending on which mode was chosen by the user, this class calls functions in the controller class. If automatic control is desired, the PlanPath() function is called and a path to the food is generated. Then the AutoControlSnake function is called to guide the snake along this path. Otherwise, if manual control has been selected, the HandleInput() method is called and the user's keyboard inputs are used to control the snake.
+Next the Update() function ia
 ### `controller.cpp` and `controller.h`
 ### `food.cpp` and `food.h`
 ### `gridmodel.cpp` and `gridmodel.h`
