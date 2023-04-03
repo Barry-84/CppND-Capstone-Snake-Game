@@ -25,20 +25,24 @@ As mentioned above, the function render is overloaded. If the mode is automatic,
 
 ### `snake.cpp` and `snake.h`
 The snake's head is updated based on the input provided either manually or automatically. Subsequently, the snake's body is updated. 
+
 ## Rubric Points
 The following rubric points are handled in this project.
 ### Loops, Functions, I/O
-- The project demonstrates an understanding of C++ functions and control structures.
+- The project demonstrates an understanding of C++ functions and control structures. 
+(switch case in Controller::AutoGuideSnake(Snake &snake), line 35,
+ switch case in Snake::UpdateBody() line 49 )
 - The project accepts input from a user as part of the necessary operation of the program.
-
+(main.cpp, line 23)
 ### Object Oriented Programming
-- The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.
+- The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks. (Food.cpp)
 - All class data members are explicitly specified as public, protected, or private.
-- All class members that are set to argument values are initialized through member initialization lists.
-- One function is overloaded with different signatures for the same function name.
+- All class members that are set to argument values are initialized through member initialization lists. (Controller, Game, GridModel, PathPlanner, Renderer, Snake)
+- One function is overloaded with different signatures for the same function name. (Function Renderer::Render() )
 
 ### Memory Management
 - At least two variables are defined as references, or two functions use pass-by-reference in the project code.
+
 ## Dependencies for Running Locally
 
 * cmake >= 3.7
