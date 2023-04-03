@@ -41,7 +41,7 @@ The following rubric points are handled in this project.
 - One function is overloaded with different signatures for the same function name. (Function Renderer::Render() )
 
 ### Memory Management
-- At least two variables are defined as references, or two functions use pass-by-reference in the project code.
+- At least two variables are defined as references, or two functions use pass-by-reference in the project code. ( Food::setPointX(int& x), Food::setPointY(int& y) )
 
 ## Dependencies for Running Locally
 
