@@ -6,8 +6,11 @@ Writes to the console and gets user input regarding choice of manual or automati
 
 ### `game.cpp` and `game.h`
 Depending on which mode was chosen by the user, this class calls functions in the controller class. If automatic control is desired, the PlanPath() function is called and a path to the food is generated. Then the AutoControlSnake function is called to guide the snake along this path. Otherwise, if manual control has been selected, the HandleInput() method is called and the user's keyboard inputs are used to control the snake.
-Next the Update() function ia
+Next the Update() function is called to move the snake and place food and magic food. Finally the Render() function is called on the renderer object. This function is overloaded.
+
 ### `controller.cpp` and `controller.h`
+In the PlanPath() function of the controller class a grid of nodes and a pathplanner object is created. The AStarSearch() method is called on the pathplanner object. A path from the snake's head to the food is calculated. The AutoGuideSnake() function uses the ChangeDirection() method to change the snakes direction in the same it is done in the case of manual control.
+
 ### `food.cpp` and `food.h`
 ### `gridmodel.cpp` and `gridmodel.h`
 ### `pathplanner.cpp` and `pathplanner.h`
