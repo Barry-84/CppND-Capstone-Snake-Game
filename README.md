@@ -21,6 +21,8 @@ The constructor fills a vector of vectors of specified dimensions, with Nodes. T
 The function AStarSEarch() initializes the open list with the node of he snake's head and gets its neighbours. While the open list is not empty the current node is computed as the node with the lowest value of f = h + g, and its neighbours are found. As soon as the current node is the node containing food, the path is constructed and returned. The function AddNeighbours() looks at each neighbour of the give node and sets the attributes parent, h_value, g_value and visited. Finally the node is placed in the open list.
 
 ### `renderer.cpp` and `renderer.h`
+As mentioned above, the function render is overloaded. If the mode is automatic, the function Render() with the shorter signature (without the magic food parameter) is called. Otherwise the function with the longer signature (with the magic food parameter) is called. After clearing the screen, the food, the magic food, snake's body and snake's head is rendered, in that order.
+
 ### `snake.cpp` and `snake.h`
 
 ## Rubric Points
