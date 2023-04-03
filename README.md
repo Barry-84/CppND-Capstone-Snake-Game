@@ -12,7 +12,11 @@ Next the Update() function is called to move the snake and place food and magic 
 In the PlanPath() function of the controller class a grid of nodes and a pathplanner object is created. The AStarSearch() method is called on the pathplanner object. A path from the snake's head to the food is calculated. The AutoGuideSnake() function uses the ChangeDirection() method to change the snakes direction in the same it is done in the case of manual control.
 
 ### `food.cpp` and `food.h`
+The food class contains getter and setter functions for food coordinates. It also contains a function which for a given coordinate returns true if it contains food, false otherwise.
+
 ### `gridmodel.cpp` and `gridmodel.h`
+The constructor fills a vector of vectors of specified dimensions, with Nodes. The FindNeighbours() function finds the North, South, East and West neighbours of the given node. Since the snake is only permitted to move left, right, up and down, the manhattan distance is used in the function distance().
+
 ### `pathplanner.cpp` and `pathplanner.h`
 ### `renderer.cpp` and `renderer.h`
 ### `snake.cpp` and `snake.h`
