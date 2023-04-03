@@ -24,7 +24,7 @@ The function AStarSEarch() initializes the open list with the node of he snake's
 As mentioned above, the function render is overloaded. If the mode is automatic, the function Render() with the shorter signature (without the magic food parameter) is called. Otherwise the function with the longer signature (with the magic food parameter) is called. After clearing the screen, the food, the magic food, snake's body and snake's head is rendered, in that order.
 
 ### `snake.cpp` and `snake.h`
-
+The snake's head is updated based on the input provided either manually or automatically. Subsequently, the snake's body is updated. 
 ## Rubric Points
 The following rubric points are handled in this project.
 ### Loops, Functions, I/O
